@@ -10,7 +10,7 @@ export default function Root() {
 		<div className="bg-slate-200/25 h-full">
 			<div 
 				id="header-container"
-				className="mx-10 lg:mx-20 md:mx-15 my-0 p-0"
+				className="lg:mx-20 md:mx-15 sm:mx-0 my-0 p-0"
 			>
 				<div id="title" className="text-center bg-red-500/95 text-white my-0 p-1 shadow-lg">
 					<h1>Grades App</h1>
@@ -19,7 +19,7 @@ export default function Root() {
 
 
 
-			<div className="mx-10 lg:mx-20 md:mx-15 my-0 p-0">
+			<div className="lg:mx-20 md:mx-15 sm:mx-0 my-0 p-0">
 				<NavBarMain />
 				<Outlet />
 			</div>
