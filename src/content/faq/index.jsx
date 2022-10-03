@@ -1,10 +1,11 @@
 import React from "react";
 import faqInfo from "./content";
 import { Table } from "react-bootstrap";
+import { Accordian } from "../../components/accordian";
 
 export function Display() {
 
-	const { lengths, distances } = faqInfo()
+	const { lengths, distances, copy } = faqInfo()
 
 	const Lengths = () => {
 
@@ -73,9 +74,16 @@ export function Display() {
 	}
 
 	return (
-		<div className="text-center align-middle">
-			<Lengths />
-			<Distances />
+		<div className="w-[80%]">
+			<Accordian title="Minimum Safe Distances">
+				<p className="p-4">{copy.minimumSafeDistances}</p>
+				<Distances />
+			</Accordian>
+			<Accordian title="Offset Lengths">
+				<p className="p-4">{copy.offSetLengths}</p>
+				<Lengths />
+			</Accordian>
 		</div>
+
 	)
 }
