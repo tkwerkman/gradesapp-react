@@ -14,7 +14,7 @@ export function Accordian({ title, content, children }) {
 
 	return (
 		<div id="accordian" className="w-auto mx-10">
-			<div id="accordian-title" className="bg-red-500 p-4 flex justify-between text-white transition all" onClick={handleOpen}>
+			<div id="accordian-title" className="bg-red-500 p-4 rounded-md flex justify-between text-white transition all" onClick={handleOpen}>
 				{title}
 				{isOpened ? <ChevronOpen /> : <ChevronClosed />}
 			</div>

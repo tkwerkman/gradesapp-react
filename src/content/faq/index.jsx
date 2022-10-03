@@ -79,6 +79,7 @@ export function Display() {
 				<p className="p-4">{copy.minimumSafeDistances}</p>
 				<Distances />
 			</Accordian>
+			<br />
 			<Accordian title="Offset Lengths">
 				<p className="p-4">{copy.offSetLengths}</p>
 				<Lengths />
