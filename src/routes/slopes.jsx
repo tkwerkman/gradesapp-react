@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function Slopes() {
-	return(
-		<p>Slope page</p>
-	)
+  return (
+    <div className='flex'>
+				<p>Slopes eventually</p>
+    </div>
+  );
 }
