@@ -5,6 +5,7 @@ import { shotDrawingPositionConverter } from '../functions/shotDrawingPosition';
 export default function Shots() {
   const [num1, setNum1] = useState(1);
   const [num2, setNum2] = useState(1);
+  const [grade, setGrade] = useState(0);
   const bounds = { min: 0, max: 5, conv: 500 }; // meter range for visuals
 
   const pos = (num) => {
@@ -16,6 +17,10 @@ export default function Shots() {
   };
   const handleTwo = () => {
     setNum2(document.getElementById('num2Range').value);
+  };
+
+  const handleGrade = () => {
+    setGrade(document.getElementById('gradeRange').value);
   };
 
   return (
@@ -45,6 +50,19 @@ export default function Shots() {
             max='2'
             step='0.01'
             onChange={handleTwo}
+          />
+        </div>
+        <label>Grade: {grade}</label>
+        <div className='relative pt-1'>
+          <input
+            type='range'
+            value={grade}
+            className=' form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none'
+            id='gradeRange'
+            min='-2'
+            max='2'
+            step='0.01'
+            onChange={handleGrade}
           />
         </div>
       </div>
@@ -81,42 +99,91 @@ export default function Shots() {
             y2={200}
           />
 
-          {/* Top dotted line */}
+          {/* Stake Bottom dotted line */}
           <line
-            style={{ stroke: 'blue', strokeDasharray: '8', strokeWidth: '2' }}
+            style={{ stroke: 'green', strokeDasharray: '8', strokeWidth: '2' }}
             x1='81%'
             y1={100 + (pos(num2) - pos(num1) + 100)}
-            x2='85%'
+            x2='60%'
             y2={100 + (pos(num2) - pos(num1) + 100)}
           />
-          {/* Bottom dotted line */}
+          {/* Ground dotted line */}
           <line
-            style={{ stroke: 'blue', strokeDasharray: '8', strokeWidth: '2' }}
+            style={{ stroke: 'green', strokeDasharray: '8', strokeWidth: '2' }}
             x1='25%'
             y1={200}
-            x2='85%'
+            x2='60%'
             y2={200}
           />
 
-          {/* Vertical connector (dotted lines) */}
+          {/* Ground(d) to stake bottom(d) connector */}
           <line
-            style={{ stroke: 'blue', strokeWidth: 2 }}
-            x1='85%'
+            style={{ stroke: 'green', strokeWidth: 2 }}
+            x1='60%'
             y1={100 + (pos(num2) - pos(num1) + 100)}
-            x2='85%'
+            x2='60%'
             y2={200}
           />
+
+          {/* Grade line */}
+          <line
+            style={{ stroke: 'purple', strokeWidth: 2 }}
+            x1='75%'
+            y1={200 - pos(grade)}
+            x2='85%'
+            y2={200 - pos(grade)}
+          />
+
+					{/* Grade dotted line */}
+					<line
+						style={{ stroke: 'purple', strokeWidth: 2, strokeDasharray: '8'}}
+						x1="85%"
+						y1={200 - pos(grade)}
+						x2="87%"
+						y2={200 - pos(grade)}
+					/>
+
+					{/* Stake bottom dotted line (grade)*/}
+					<line
+					style={{stroke: 'purple', strokeWidth: 2, strokeDasharray: '8'}}
+					x1="80%"
+					y1={100 + (pos(num2) - pos(num1) + 100)}
+					x2="87%"
+					y2={100 + (pos(num2) - pos(num1) + 100)}
+					/>
+
+					{/* Grade(d) to stake bottom(d) connector*/}
+					<line
+            style={{ stroke: 'purple', strokeWidth: 2 }}
+            x1='87%'
+            y1={100 + (pos(num2) - pos(num1) + 100)}
+            x2='87%'
+            y2={200 - pos(grade)}
+          />
+
+
         </svg>
 
         <div
-          id='diffText'
-          className='absolute'
+          id='groundDiffText'
+          className='absolute text-sm'
           style={{
             top: (100 + (pos(num2) - pos(num1) + 100) + 200) / 2 - 10,
-            left: '87%',
+            left: '61%',
           }}
         >
-          <Difference num1={num1} num2={num2} />
+          <Difference color="green" num1={num1} num2={num2} />
+        </div>
+
+				<div
+          id='gradeDiffText'
+          className='absolute text-sm'
+          style={{
+            top: (100 + (pos(num2) - pos(grade)) + 200) / 2 - 10,
+            left: '82%',
+          }}
+        >
+          <Difference color="purple" num1={grade} num2={(num1-num2)} />
         </div>
 
         <div
