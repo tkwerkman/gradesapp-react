@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Difference } from '../components/shot_difference';
 import { shotDrawingPositionConverter } from '../functions/shotDrawingPosition';
+import { formatGrade } from '../functions/formatGrade';
+import { calcNewGrade } from '../functions/calcNewGrade';
+import { LabelledRange } from '../components/labelledrange';
+import { ShotLines } from '../content/shots/display';
 
 export default function Shots() {
   const [num1, setNum1] = useState(1);
@@ -23,48 +27,31 @@ export default function Shots() {
     setGrade(document.getElementById('gradeRange').value);
   };
 
+
   return (
     <div className='mt-4 mx-1'>
       <div>
-        <label>Shot from: {num1}</label>
-        <div className='relative pt-1'>
-          <input
-            type='range'
-            value={num1}
-            className=' form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none'
-            id='num1Range'
-            min='0'
-            max='2'
-            step='0.01'
-            onChange={handleOne}
-          />
-        </div>
-        <label>Shot to: {num2}</label>
-        <div className='relative pt-1'>
-          <input
-            type='range'
-            value={num2}
-            className=' form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none'
-            id='num2Range'
-            min='0'
-            max='2'
-            step='0.01'
-            onChange={handleTwo}
-          />
-        </div>
-        <label>Grade: {grade}</label>
-        <div className='relative pt-1'>
-          <input
-            type='range'
-            value={grade}
-            className=' form-range appearance-none w-full h-6 p-0 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none'
-            id='gradeRange'
-            min='-2'
-            max='2'
-            step='0.01'
-            onChange={handleGrade}
-          />
-        </div>
+        <LabelledRange
+          id='num1Range'
+          label={`Shot (Old Stick): ${num1}`}
+          value={num1}
+          func={handleOne}
+        />
+        <LabelledRange
+          id='num2Range'
+          label={`Shot (New Stick): ${num2}`}
+          value={num2}
+          func={handleTwo}
+        />
+        <LabelledRange
+          id='gradeRange'
+          label={`Grade (Old Stick): ${grade}`}
+          value={grade}
+          func={handleGrade}
+        />
+        <label>
+          Grade (New Stick): {formatGrade(calcNewGrade(num1, num2, grade))}
+        </label>
       </div>
 
       <div className='shot-stick-container'>
@@ -73,96 +60,9 @@ export default function Shots() {
           height='100%'
           width='100%'
         >
-          {/* Level line */}
-          <line
-            style={{ stroke: 'red', strokeWidth: 2 }}
-            x1='20%'
-            y1={200 - pos(num1)}
-            x2='80%'
-            y2={200 - pos(num1)}
-          />
-          {/* Ground tracking line */}
-          <line
-            style={{ stroke: 'orange', strokeWidth: 2 }}
-            x1='25%'
-            y1={200}
-            x2='80.2%'
-            y2={100 + (pos(num2) - pos(num1) + 98)}
-          />
+					<ShotLines pos={pos} num1={num1} num2={num2} grade={grade} />
 
-          {/* Ground illustration line */}
-          <line
-            style={{ stroke: 'green', strokeWidth: 2 }}
-            x1='15%'
-            y1={200}
-            x2='25%'
-            y2={200}
-          />
-
-          {/* Stake Bottom dotted line */}
-          <line
-            style={{ stroke: 'green', strokeDasharray: '8', strokeWidth: '2' }}
-            x1='81%'
-            y1={100 + (pos(num2) - pos(num1) + 100)}
-            x2='60%'
-            y2={100 + (pos(num2) - pos(num1) + 100)}
-          />
-          {/* Ground dotted line */}
-          <line
-            style={{ stroke: 'green', strokeDasharray: '8', strokeWidth: '2' }}
-            x1='25%'
-            y1={200}
-            x2='60%'
-            y2={200}
-          />
-
-          {/* Ground(d) to stake bottom(d) connector */}
-          <line
-            style={{ stroke: 'green', strokeWidth: 2 }}
-            x1='60%'
-            y1={100 + (pos(num2) - pos(num1) + 100)}
-            x2='60%'
-            y2={200}
-          />
-
-          {/* Grade line */}
-          <line
-            style={{ stroke: 'purple', strokeWidth: 2 }}
-            x1='75%'
-            y1={200 - pos(grade)}
-            x2='85%'
-            y2={200 - pos(grade)}
-          />
-
-					{/* Grade dotted line */}
-					<line
-						style={{ stroke: 'purple', strokeWidth: 2, strokeDasharray: '8'}}
-						x1="85%"
-						y1={200 - pos(grade)}
-						x2="87%"
-						y2={200 - pos(grade)}
-					/>
-
-					{/* Stake bottom dotted line (grade)*/}
-					<line
-					style={{stroke: 'purple', strokeWidth: 2, strokeDasharray: '8'}}
-					x1="80%"
-					y1={100 + (pos(num2) - pos(num1) + 100)}
-					x2="87%"
-					y2={100 + (pos(num2) - pos(num1) + 100)}
-					/>
-
-					{/* Grade(d) to stake bottom(d) connector*/}
-					<line
-            style={{ stroke: 'purple', strokeWidth: 2 }}
-            x1='87%'
-            y1={100 + (pos(num2) - pos(num1) + 100)}
-            x2='87%'
-            y2={200 - pos(grade)}
-          />
-
-
-        </svg>
+				</svg>
 
         <div
           id='groundDiffText'
@@ -172,10 +72,10 @@ export default function Shots() {
             left: '61%',
           }}
         >
-          <Difference color="green" num1={num1} num2={num2} />
+          <Difference color='green' num1={num1} num2={num2} />
         </div>
 
-				<div
+        <div
           id='gradeDiffText'
           className='absolute text-sm'
           style={{
@@ -183,7 +83,7 @@ export default function Shots() {
             left: '82%',
           }}
         >
-          <Difference color="purple" num1={grade} num2={(num1-num2)} />
+          <Difference color='purple' num1={grade} num2={num1 - num2} />
         </div>
 
         <div
