@@ -32,10 +32,10 @@ export default function Info() {
 
 	return (
 		<div>
-			<div id="topbar" className="topbar">
-				<div className="topbar-icon" onClick={handleDisplay}><div className="topbar-text">Stations</div></div>
-				<div className="topbar-icon" onClick={handleDisplay}><div className="topbar-text">Equipment</div></div>
-				<div className="topbar-icon" onClick={handleDisplay}><div className="topbar-text">FAQ</div></div>
+			<div id="topbar" className="navbar-main mb-4 pt-0">
+				<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">Stations</div></div>
+				<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">Equipment</div></div>
+				<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">FAQ</div></div>
 			</div>
 			<div className="info-content-container">
 				<DisplayHandler />

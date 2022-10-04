@@ -12,6 +12,6 @@ export function Difference({num1, num2}) {
 	} else if (diff === 0) {
 		str = "00"
 	}
-
+	
 	return <span style={{textDecoration: (str==="00")?"line-through":"none"}}>{str}</span>
 }
