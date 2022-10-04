@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import "../../index.css"
 export function NavBar() {
 
 	const navigate = useNavigate()
@@ -17,7 +17,7 @@ export function NavBar() {
 	}
 
 	return (
-		<div id="navbar" className="navbar-main">
+		<div className="navbar-main">
 			<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">Home</div></div>
 			<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">Shots</div></div>
 			<div className="navbar-icon" onClick={handleDisplay}><div className="topbar-text">Slopes</div></div>
