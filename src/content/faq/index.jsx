@@ -71,14 +71,16 @@ export function Display() {
   };
 
   return (
-    <div className='w-[80%]'>
+    <div className='w-[80%] text-center'>
       <Accordian title='Minimum Safe Distances'>
-        <p className='p-4'>{copy.minimumSafeDistances}</p>
+				<div>
+        	<p className='mx-4 my-4 px-2 py-2 text-left text-lg'>{copy.minimumSafeDistances}</p>
+				</div>
         <Distances />
       </Accordian>
       <br />
       <Accordian title='Offset Lengths'>
-        <p className='p-4'>{copy.offSetLengths}</p>
+        <p className='mx-4 my-4 px-2 py-2 text-left text-lg'>{copy.offSetLengths}</p>
         <Lengths />
       </Accordian>
     </div>

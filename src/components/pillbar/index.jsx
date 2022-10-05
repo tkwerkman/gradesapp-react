@@ -1,4 +1,4 @@
-function Pill({ text, func }) {
+export function Pill({ text, func }) {
   return (
     <div className='navbar-icon' onClick={func}>
       <div className='topbar-text'>{text}</div>
@@ -10,7 +10,7 @@ export default function PillBar({ textArray, func }) {
   return (
     <div className='navbar-main'>
       {textArray.map((pill) => {
-        return <Pill text={pill} func={func} />;
+        return <Pill key={pill + 'nav'} text={pill} func={func} />;
       })}
     </div>
   );

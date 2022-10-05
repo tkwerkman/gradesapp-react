@@ -1,4 +1,8 @@
-export default function getShotLines(pos, num1, num2, grade) {
+
+import { SetLine } from "../../components/svg/line"
+
+
+export function getShotLines(pos, num1, num2, grade) {
   const lines = [
     {
       name: 'Shot Level',
@@ -93,4 +97,21 @@ export default function getShotLines(pos, num1, num2, grade) {
   ];
 
   return lines;
+}
+
+export function ShotLines({pos, num1, num2, grade}) {
+	const lines = getShotLines(pos, num1, num2, grade)
+	return lines.map((line) => {
+		return(
+			<SetLine
+				key={line.name}
+				color={line.color}
+				dashed={line.dashed}
+				x1={line.x1}
+				y1={line.y1}
+				x2={line.x2}
+				y2={line.y2}
+			/>
+		)
+	})
 }

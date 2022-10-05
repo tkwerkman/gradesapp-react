@@ -1,18 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { NavBarRoot } from '../components/navbars/nav-root';
-
+import { SiteHeader } from '../components/header/header';
 export default function Root() {
   return (
-    <div className='bg-slate-200/25 h-full'>
-      <div id='header-container' className='lg:mx-20 md:mx-15 sm:mx-0 my-0 p-0'>
-        <div
-          id='title'
-          className='text-center bg-red-500/95 text-white my-0 p-1 shadow-lg'
-        >
-          <h1>Grades App</h1>
-        </div>
-      </div>
+    <SiteHeader>
 
       <div className='lg:mx-20 md:mx-15 sm:mx-0 my-0 p-0'>
         <NavBarRoot />
@@ -25,6 +17,6 @@ export default function Root() {
           <i>Tyler Werkman 2022</i>
         </p>
       </div>
-    </div>
+    </SiteHeader>
   );
 }

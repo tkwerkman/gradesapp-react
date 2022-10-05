@@ -13,19 +13,17 @@
 		@apply flex items-center justify-between text-center
 		w-28 h-12 flex-shrink-0
 		mt-auto mb-auto ml-2 mr-2 p-2
-		bg-slate-200 hover:bg-slate-300
-		rounded-[30px] hover:rounded-lg
-		transition-all duration-200 ease-linear
+		border-2 border-slate-200 bg-gray-500 rounded-[30px]
+		text-white 
+
+		hover:border-none
+		hover:bg-gray-600 hover:ring-gray-300 hover:ring-4
+	
+		active:bg-gray-700 active:ring-gray-400 active:ring-[7px]
+		transition-all duration-150 ease-in
 		cursor-pointer;
 	}
 
-	.topbar-main {
-		@apply bg-slate-100 p-0.5 shadow-md flex justify-start mb-0 overflow-x-auto
-	}
-
-	.topbar-icon {
-
-	}
 
 	.topbar-text {
 		@apply text-center flex items-center justify-center
@@ -52,12 +50,16 @@
 	}
 
 	.shot-stick {
-		@apply absolute border-2 border-gray-500 w-3 h-[100px] 
-		shadow-md hover:shadow-2xl hover:bg-gray-400 transition-all duration-75 ease-linear;
+		@apply absolute border-2 border-yellow-800 w-3.5 h-[100px]
+		shadow-md rounded-sm;
 	}
 
 	.level-line {
 		@apply absolute border-[1px] w-[60%] left-[20%] transition-all duration-75 ease-linear;
+	}
+
+	.slope-vis-container {
+		@apply relative top-0 left-0 w-[675px] sm:w-full lg:max-w-[675px] min-h-[300px] my-5 border-2 border-black;
 	}
 
 }

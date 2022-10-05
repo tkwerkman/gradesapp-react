@@ -15,7 +15,7 @@ export function Accordian({ title, content, children }) {
     <div id='accordian' className='w-auto mx-10'>
       <div
         id='accordian-title'
-        className='bg-red-500/95 p-4 rounded-md flex justify-between text-white transition all'
+        className='bg-gray-500 p-4 rounded-md flex justify-between text-white transition all hover:bg-gray-600 hover:ring-4 hover:ring-gray-300 active:bg-gray-700 active:ring-8 active:ring-gray-400'
         onClick={handleOpen}
       >
         {title}

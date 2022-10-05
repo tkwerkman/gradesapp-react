@@ -7,8 +7,8 @@ export function NavBarRoot() {
   const navigate = useNavigate();
   const navRoutes = {
     Home: '/',
-    Shots: '/shots',
-    Slopes: '/slopes',
+    Shots: '/shots/visualizer',
+    Slopes: '/slopes/offsets',
     Info: '/info/stations',
   };
 
