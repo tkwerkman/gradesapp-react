@@ -1,13 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavBarRoot } from '../components/navbars/nav-root';
+import { NavBarRoot, NavRootNew } from '../components/navbars/nav-root';
 import { SiteHeader } from '../components/header/header';
 export default function Root() {
   return (
     <SiteHeader>
 
       <div className='lg:mx-20 md:mx-15 sm:mx-0 my-0 p-0'>
-        <NavBarRoot />
+				<NavRootNew />
+        {/* <NavBarRoot /> */}
         <Outlet />
       </div>
 

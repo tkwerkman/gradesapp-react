@@ -1,6 +1,7 @@
 import { ShotGradeText } from './text';
 import { ShotDiffText } from './difftext';
 import { ShotLines } from './lines';
+import { ShotStakes } from './shotstakes';
 
 export function ShotVisualizer({
   pos,
@@ -20,6 +21,7 @@ export function ShotVisualizer({
         width='100%'
       >
         <ShotLines pos={pos} num1={num1} num2={num2} grade={grade} />
+				<ShotStakes pos={pos} num1={num1} num2={num2} />
         <ShotGradeText
           gradeText={gradeText}
           newGradeText={newGradeText}
@@ -33,7 +35,7 @@ export function ShotVisualizer({
 
       <ShotDiffText pos={pos} num1={num1} num2={num2} grade={grade} />
 
-      <div
+      {/* <div
         id='shot1'
         className='shot-stick'
         style={{ left: '20%', top: `100px` }}
@@ -42,7 +44,7 @@ export function ShotVisualizer({
         id='shot2'
         className='shot-stick'
         style={{ left: '80%', top: `${pos(num2) - pos(num1) + 100}px` }}
-      />
+      /> */}
     </>
   );
 }

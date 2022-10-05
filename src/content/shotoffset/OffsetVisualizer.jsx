@@ -8,7 +8,7 @@ import { ShotVisualizer } from './visualizer';
 import { ShotRanges } from './ranges';
 
 export default function OffsetVisualizer() {
-  const ref = useRef(null);
+  const ref = useRef(0);
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -25,8 +25,9 @@ export default function OffsetVisualizer() {
 
   function updateLayout() {
     function setLayout() {
-      const refW = ref.current.offsetWidth || 0;
-      const refH = ref.current.offsetHeight || 0;
+			if (ref.current.offsetWidth === null) {return}
+      const refW = ref.current.offsetWidth;
+      const refH = ref.current.offsetHeight;
       setWidth(refW);
       setHeight(refH);
     }

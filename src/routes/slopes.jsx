@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { NavBarSlopes } from '../components/navbars/nav-slope';
+import { NotYetImplemented } from '../components/notimplemented/notimplemented';
 import { SlopeBaseVisualiser } from '../content/slopebase';
 
 export default function Slopes() {
@@ -12,7 +13,7 @@ export default function Slopes() {
       case 'offsets':
         return <SlopeBaseVisualiser />;
       case 'grades':
-        return <p>NYI</p>;
+        return <NotYetImplemented />;
       default:
         navigate('/slopes/offsets');
         return;

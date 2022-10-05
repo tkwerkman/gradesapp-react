@@ -2,64 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+svg {overflow: hidden}
 
 @layer components {
+  .pillbar {
+    @apply bg-slate-100 p-2 shadow-md flex justify-start mb-0 overflow-x-scroll;
+  }
 
-	.navbar-main {
-		@apply bg-slate-100 p-2 shadow-md flex justify-start mb-0 overflow-x-scroll
-	}
+  .pill-container {
+    @apply flex items-center justify-between text-center
+		w-auto h-auto flex-shrink-0 select-none
+		mt-auto mb-auto ml-2 mr-2 py-1 px-4
+		bg-gray-500 rounded-[30px] text-white 
 
-	.navbar-icon {
-		@apply flex items-center justify-between text-center
-		w-28 h-12 flex-shrink-0
-		mt-auto mb-auto ml-2 mr-2 p-2
-		border-2 border-slate-200 bg-gray-500 rounded-[30px]
-		text-white 
-
-		hover:border-none
 		hover:bg-gray-600 hover:ring-gray-300 hover:ring-4
+		focus:bg-gray-600 focus:ring-gray-300 focus:ring-4
 	
 		active:bg-gray-700 active:ring-gray-400 active:ring-[7px]
-		transition-all duration-150 ease-in
+		transition-all duration-500 ease-out
+		cursor-pointer;
+  }
+
+	.pill-container {
+    @apply flex items-center justify-between text-center
+		w-auto h-auto flex-shrink-0 select-none
+		mt-auto mb-auto ml-2 mr-2 py-1 px-4
+		bg-gray-500 rounded-[30px] text-white 
+
+		hover:bg-gray-600 hover:ring-gray-300 hover:ring-4
+		focus:bg-gray-600 focus:ring-gray-300 focus:ring-4
+	
+		active:bg-gray-700 active:ring-gray-400 active:ring-[7px]
+		transition-all duration-500 ease-out
+		cursor-pointer;
+  }
+
+	.pill-container-noaction {
+		@apply flex items-center justify-between text-center
+		w-auto h-auto flex-shrink-0 select-none
+		mt-auto mb-auto ml-2 mr-2 py-1 px-4
+		bg-transparent rounded-[30px] text-gray-600 
+	}
+
+  .pill-text {
+    @apply text-center flex items-center justify-center
+		m-auto;
+  }
+
+	.pill-anim-wrapper {
+		@apply flex border border-gray-400 rounded-[30px] h-auto p-0 my-0 mx-1
+	}
+
+	.pill-subbar {
+		@apply flex
+	}
+
+	.pill-sub-container {
+		@apply flex bg-transparent items-center justify-between text-center
+		m-0 p-0 w-0  rounded-[30px] select-none
+
+		group-hover:w-32 h-6 my-auto group-hover:mx-2 group-hover:py-1 group-hover:px-4
+		group-hover:bg-gray-500
+		
+		hover:!bg-gray-600 hover:!ring-gray-300 hover:!ring-4
+		focus:!bg-gray-600 focus:!ring-gray-300 focus:!ring-4
+		active:!bg-gray-700 active:!ring-gray-400 active:!ring-[7px]
+
+		transition-all ease-out duration-500
 		cursor-pointer;
 	}
 
-
-	.topbar-text {
-		@apply text-center flex items-center justify-center
-		m-auto;
+	.pill-sub-text {
+		@apply m-0 p-0 w-0 text-transparent group-hover:text-white group-hover:w-32 transition-all duration-1000
 	}
 
-	.info-content-container {
-		@apply flex flex-wrap gap-10
+  .info-content-container {
+    @apply flex flex-wrap gap-10
 		justify-center items-center;
-	}
-	
-	.info-content-item {
-		@apply  bg-slate-100/40 border-slate-400 border-2 border-opacity-5 
+  }
+
+  .info-content-item {
+    @apply bg-slate-100/40 border-slate-400 border-2 border-opacity-5 
 		container max-w-xs lg:max-w-lg p-2 h-80
 		shadow-md hover:shadow-xl 
 		rounded-xl 
 		hover:border-opacity-20 hover:border-8
 		hover:p-4
 		transition-all duration-200 ease-linear;
-	}
+  }
 
-	.shot-stick-container {
-		@apply relative top-0 left-0 min-w-full min-h-[400px] my-5 border-2 border-black;
-	}
+  .shot-stick-container {
+    @apply relative top-0 left-0 min-w-full min-h-[410px] my-5 border-2 border-black;
+  }
 
-	.shot-stick {
-		@apply absolute border-2 border-yellow-800 w-3.5 h-[100px]
+  .shot-stick {
+    @apply absolute border-2 border-yellow-800 w-3.5 h-[100px]
 		shadow-md rounded-sm;
-	}
+  }
 
-	.level-line {
-		@apply absolute border-[1px] w-[60%] left-[20%] transition-all duration-75 ease-linear;
-	}
+  .level-line {
+    @apply absolute border-[1px] w-[60%] left-[20%] transition-all duration-75 ease-linear;
+  }
 
-	.slope-vis-container {
-		@apply relative top-0 left-0 w-[675px] sm:w-full lg:max-w-[675px] min-h-[300px] my-5 border-2 border-black;
-	}
-
+  .slope-vis-container {
+    @apply relative top-0 left-0 w-[675px] sm:w-full lg:max-w-[675px] min-h-[300px] my-5 border-2 border-black;
+  }
 }

@@ -9,9 +9,9 @@ export function getShotLines(pos, num1, num2, grade) {
       color: 'red',
       dashed: false,
       x1: '20%',
-      y1: 200 - pos(num1),
+      y1: 203 - pos(num1),
       x2: '80%',
-      y2: 200 - pos(num1),
+      y2: 203 - pos(num1),
     },
     {
       name: 'Ground Tracking',
@@ -20,7 +20,7 @@ export function getShotLines(pos, num1, num2, grade) {
       x1: '25%',
       y1: 200,
       x2: '80.2%',
-      y2: 100 + (pos(num2) - pos(num1) + 98),
+      y2: 100 + (pos(num2) - pos(num1) + 100),
     },
     {
       name: 'Ground Illustration',

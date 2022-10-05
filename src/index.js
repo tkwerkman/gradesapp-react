@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
+// import './components/pillbar/pillbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ErrorPage from './routes/error';
