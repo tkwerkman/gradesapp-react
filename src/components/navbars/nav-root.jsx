@@ -7,10 +7,6 @@ import PillBar, {
 } from '../../components/pillbar';
 
 export function NavBarRoot() {
-  return false;
-}
-
-export function NavRootNew() {
   const navigate = useNavigate();
   const navRoutes = {
     Home: '/',
@@ -19,6 +15,7 @@ export function NavRootNew() {
     Offsets: '/slopes/offsets',
     Grades: '/slopes/grades',
     Stations: '/info/stations',
+		Equipment: '/info/equipment',
     FAQ: '/info/faq',
   };
 
@@ -42,6 +39,7 @@ export function NavRootNew() {
       </ExpandablePill>
       <ExpandablePill text='Info'>
         <ExpandablePillChild text='Stations' func={handleDisplay} />
+				<ExpandablePillChild text='Equipment' func={handleDisplay} />
         <ExpandablePillChild text='FAQ' func={handleDisplay} />
       </ExpandablePill>
     </PillBar>

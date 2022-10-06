@@ -82,12 +82,13 @@ svg {overflow: hidden}
   }
 
   .info-content-item {
-    @apply bg-slate-100/40 border-slate-400 border-2 border-opacity-5 
-		container max-w-xs lg:max-w-lg p-2 h-80
+    @apply bg-slate-100/40 border-gray-400 border-2 border-opacity-5 
+		container max-w-xs lg:max-w-lg p-2 h-64
 		shadow-md hover:shadow-xl 
 		rounded-xl 
-		hover:border-opacity-20 hover:border-8
-		hover:p-4
+		hover:border-opacity-20 hover:ring-8 hover:ring-gray-400
+		active:ring-[16px]
+		hover:px-0 hover:mx-0 active:shadow-2xl
 		transition-all duration-200 ease-linear;
   }
 

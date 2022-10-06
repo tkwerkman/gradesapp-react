@@ -2,7 +2,7 @@ import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { NavBarShots } from "../components/navbars/nav-shots";
 import { NotYetImplemented } from "../components/notimplemented/notimplemented";
-import OffsetVisualizer from "../content/shotoffset/OffsetVisualizer";
+import OffsetVisualizer from "../content/shotvisualizer";
 
 export default function Shots() {
   const { display } = useLoaderData();
