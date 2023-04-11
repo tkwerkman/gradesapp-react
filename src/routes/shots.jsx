@@ -1,7 +1,7 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { NavBarShots } from "../components/navbars/nav-shots";
-import { NotYetImplemented } from "../components/notimplemented/notimplemented";
+import ShotCalculator from "../content/shotcalculator";
 import OffsetVisualizer from "../content/shotvisualizer";
 
 export default function Shots() {
@@ -13,7 +13,7 @@ export default function Shots() {
       case 'visualizer':
         return <OffsetVisualizer />;
       case 'calculator':
-        return <NotYetImplemented />;
+        return <ShotCalculator />;
       default:
         navigate('/shots/visualizer');
         return;
