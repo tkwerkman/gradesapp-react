@@ -11,6 +11,7 @@ export function ShotVisualizer({
   newGrade,
   gradeText,
   newGradeText,
+	showLines,
 }) {
   return (
     <>
@@ -20,7 +21,7 @@ export function ShotVisualizer({
         height='100%'
         width='100%'
       >
-        <ShotLines pos={pos} num1={num1} num2={num2} grade={grade} />
+        <ShotLines pos={pos} num1={num1} num2={num2} grade={grade} showLines={showLines}/>
 				<ShotStakes pos={pos} num1={num1} num2={num2} />
         <ShotGradeText
           gradeText={gradeText}
@@ -33,7 +34,7 @@ export function ShotVisualizer({
         />
       </svg>
 
-      <ShotDiffText pos={pos} num1={num1} num2={num2} grade={grade} />
+      <ShotDiffText pos={pos} num1={num1} num2={num2} grade={grade} showLines={showLines} />
 
       {/* <div
         id='shot1'

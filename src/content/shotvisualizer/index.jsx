@@ -6,6 +6,7 @@ import { updateVisualizer } from '../../functions/updateVisualizer';
 
 import { ShotVisualizer } from './visualizer';
 import { ShotRanges } from './ranges';
+import { LineButtonGroup } from './linebuttons';
 
 export default function OffsetVisualizer() {
   const ref = useRef(0);
@@ -19,6 +20,14 @@ export default function OffsetVisualizer() {
 
   const [gradeText, setGradeText] = useState({ x: '0', y: '0' });
   const [newGradeText, setNewGradeText] = useState({ x: '0', y: '0' });
+
+	const [showLines, setShowLines] = useState([
+		{set: 0, name: "Shot Level", show: true},
+		{set: 1, name: "Ground Slope", show: false},
+		{set: 2, name: "Ground Change", show: true},
+		{set: 3, name: "Old Grade Level", show: true},
+		{set: 4, name: "New Grade Level", show: true},
+	])
 
   const newGrade = calcNewGrade(num1, num2, grade);
   const bounds = { min: 0, max: 5, conv: 500 }; // meter range for visuals
@@ -86,7 +95,9 @@ export default function OffsetVisualizer() {
         newGrade={newGrade}
         handleChange={handleChange}
       />
-
+			<div className='flex items-center justify-center'>
+				<LineButtonGroup showLines={showLines} setShowLines={setShowLines} />
+			</div>
       <div ref={ref} id='shotDiv' className='shot-stick-container'>
         <ShotVisualizer
           pos={pos}
@@ -96,6 +107,7 @@ export default function OffsetVisualizer() {
           newGrade={newGrade}
           gradeText={gradeText}
           newGradeText={newGradeText}
+					showLines={showLines}
         />
       </div>
     </div>
