@@ -7,6 +7,7 @@ export function ShotGradeText({gradeText, newGradeText, grade, newGrade, pos, nu
       <text
         id='gradeText'
         className='text-xs'
+				style={{textDecoration: newGrade == 0 ? 'line-through' : 'none'}}
         x={gradeText.x}
         y={gradeText.y}
         transform={`rotate(90 ${gradeText.x} ${gradeText.y})`}
@@ -17,6 +18,7 @@ export function ShotGradeText({gradeText, newGradeText, grade, newGrade, pos, nu
       <text
         id='newGradeText'
         className='text-xs'
+				style={{textDecoration: newGrade == 0 ? 'line-through' : 'none'}}
         x={newGradeText.x}
         y={newGradeText.y}
         transform={`rotate(90 ${newGradeText.x} ${newGradeText.y})`}
@@ -24,14 +26,6 @@ export function ShotGradeText({gradeText, newGradeText, grade, newGrade, pos, nu
         {formatGrade(newGrade)}
       </text>
 
-			<text
-				id='levelText'
-				className="text-xs"
-				x={'60%'}
-				y={200 - pos(num1)}
-			>
-
-			</text>
     </>
   );
 }

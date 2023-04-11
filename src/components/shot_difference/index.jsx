@@ -1,10 +1,10 @@
 import React from 'react';
 import { UpArrow, DownArrow } from '../../content/icons/Arrows';
+import { formatGradeWithoutLetters } from '../../functions/formatGrade';
 
 export function Difference({ num1, num2, color }) {
   const diff = num2 - num1;
-  const rnd = Math.round(diff * 100) / 100;
-  let str = '' + Math.abs(rnd);
+  let str = formatGradeWithoutLetters(diff)
   let Ret;
 
   if (diff < 0) {
@@ -27,11 +27,11 @@ export function Difference({ num1, num2, color }) {
     str = Ret = (
       <div
         style={{
-          textDecoration: str === '00' ? 'line-through' : 'none',
+          textDecoration: 'line-through',
           color: color,
         }}
       >
-        {str}
+        {'00'}
       </div>
     );
   }

@@ -1,7 +1,14 @@
-export function LabelledRange({ label, value, id, func, set }) {
+export function LabelledRange({ label, valueLabel, value, id, func, set }) {
   return (
     <div>
-      <label>{label}</label>
+      <label>
+				{label}
+				<span 
+					style={{textDecoration: valueLabel == '00'?'line-through':'none'}}
+				>
+					{valueLabel}
+				</span>
+			</label>
       <div className='relative pt-1'>
         <input
           type='range'
