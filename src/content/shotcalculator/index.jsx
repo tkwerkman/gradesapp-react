@@ -6,14 +6,15 @@ function StakeBox({ id, name, grade, level, setGrade, setLevel, disabled }) {
   return (
     <div
       id={id}
-      className='text-center m-2 p-2 border-2 border-gray-500 rounded-lg'
+      className='text-center m-2 p-2 border-2 border-gray-500 rounded-lg w-40'
     >
       <h3>{name}</h3>
       <div className='block justify-center text-center'>
-        <label className='ml-auto'>Grade on stake</label>
+        <label>Grade</label>
         <br />
         <input
-          className='border border-gray-400'
+          className='border border-gray-400 w-20'
+					size='10'
           type='number'
           onChange={(e) => setGrade(e.target.value)}
           disabled={disabled}
@@ -24,7 +25,8 @@ function StakeBox({ id, name, grade, level, setGrade, setLevel, disabled }) {
         <label className='ml-auto'>Level height</label>
         <br />
         <input
-          className='border border-gray-400'
+          className='border border-gray-400 w-20'
+					size='10'
           type='number'
           onChange={(e) => setLevel(e.target.value)}
         />
@@ -40,7 +42,8 @@ export default function ShotCalculator() {
   const [nsLevel, setNsLevel] = useState(0);
 
   const calcGrade = () => {
-    const toSet = Math.round((nsLevel - level + grade) * 100)/100;
+    const newGrade =(Number(nsLevel) - Number(level)) + Number(grade);
+		const toSet = Math.round(newGrade*100) / 100
     setNsGrade('' + toSet);
   };
 
@@ -49,12 +52,11 @@ export default function ShotCalculator() {
   }, [grade, level, nsLevel]);
 
   return (
-    <>
-      <p>grade: {grade}</p>
-      <p>level: {level} </p>
-      <p>nsGrade: {nsGrade}</p>
-      <p>nsLevel: {nsLevel}</p>
-      <div className='flex justify-center'>
+    <div className='m-2'>
+			<p className='text-sm italic'>
+				Ensure all measurements are in the same units. Positive numbers mean fill, negative mean cut.
+			</p>
+      <div className='flex'>
         <StakeBox
           id='oldstick'
           name='Old Stake'
@@ -73,6 +75,6 @@ export default function ShotCalculator() {
           setLevel={setNsLevel}
         />
       </div>
-    </>
+    </div>
   );
 }
