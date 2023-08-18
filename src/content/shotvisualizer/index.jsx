@@ -95,7 +95,7 @@ export default function OffsetVisualizer() {
         newGrade={newGrade}
         handleChange={handleChange}
       />
-			<div className='flex items-center justify-center'>
+			<div className='flex items-center overflow-scroll'>
 				<LineButtonGroup showLines={showLines} setShowLines={setShowLines} />
 			</div>
       <div ref={ref} id='shotDiv' className='shot-stick-container'>
